@@ -1,0 +1,17 @@
+{
+    "name": "hexlet/code",
+    "description": "hexlet php-package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Popov",
+            "email": "popovbm@gmail.com"
+        }
+    ],
+    "require": {}
+}
