@@ -3,3 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 ![example workflow](https://github.com/popovbm/php-project-lvl1/actions/workflows/lint-check.yml/badge.svg)
 [![asciicast](https://asciinema.org/a/Oen4tKdUqK7xZO7wx6luNPysF.svg)](https://asciinema.org/a/Oen4tKdUqK7xZO7wx6luNPysF)
+[![asciicast](https://asciinema.org/a/Z5O6uogVz9XgPIY7vuCcVeWPZ.svg)](https://asciinema.org/a/Z5O6uogVz9XgPIY7vuCcVeWPZ)
