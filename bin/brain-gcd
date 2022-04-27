@@ -11,8 +11,7 @@ if (file_exists($autoloadPath1)) {
 }
 
 use function Brain\Games\Engine\greeting;
-use function Brain\Games\Engine\brainCalcQuestion;
+use function Brain\Games\Engine\brainGcdLogic;
 
 greeting();
-
-brainCalcQuestion();
+brainGcdLogic();
