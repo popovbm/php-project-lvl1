@@ -42,8 +42,8 @@ function brainCalc($num1, $num2, $operator)
 
 function brainCalcExpression()
 {
-    $num1 = random_int(1, 10);
-    $num2 = random_int(1, 10);
+    $num1 = random_int(1, 100);
+    $num2 = random_int(1, 100);
     $operators = ['+', '-', '*'];
     $countOperators = count($operators) - 1;
     $operator = $operators[rand(0, $countOperators)];
@@ -111,6 +111,7 @@ function brainGcdLogic()
             $counter++;
         } else {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$resultFindGcd}'.");
+            line("Let's try again, %s!", $name);
             break;
         }
     }
@@ -168,10 +169,52 @@ function brainProgressionGame()
             $counter++;
         } else {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$randomValueFromArray}'.");
+            line("Let's try again, %s!", $name);
             break;
         }
     }
 
+    if ($counter === 4) {
+        line("Congratulations, %s!", $name);
+    }
+}
+
+function isPrimeLogic($num)
+{
+    $intIsPrime = 'yes';
+    $intIsNotPrime = 'no';
+
+    for ($i = 2; $i < $num - 1; $i++) {
+        if ($num % $i === 0) {
+            return $intIsNotPrime;
+        }
+    }
+    return $intIsPrime;
+}
+
+function brainPrimeGame()
+{
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('Answer "yes" if given number is prime. Otherwise answer "no"');
+
+    $counter = 1;
+
+    for ($i = 0; $i < 3; $i++) {
+        $randomInt = random_int(1, 100);
+        $result = isPrimeLogic($randomInt);
+        line('Question №%d: %d', $counter, $randomInt);
+        $answer = prompt('Your answer');
+
+        if ($answer === $result) {
+            line("Correct!");
+            $counter++;
+        } else {
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$result}'.");
+            line("Let's try again, %s!", $name);
+            break;
+        }
+    }
     if ($counter === 4) {
         line("Congratulations, %s!", $name);
     }
