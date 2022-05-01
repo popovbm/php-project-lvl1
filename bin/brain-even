@@ -9,41 +9,9 @@ if (file_exists($autoloadPath1)) {
 	    require_once $autoloadPath2;
 }
   
-  use function cli\line;
-  use function cli\prompt;
+use function src\Games\brain\even\task;
+use function src\Games\brain\even\brainEvenLogic;
 
-function game()
-{
-  line('Welcome to the Brain Game!');
-  $name = prompt('May I have your name?');
-  line("Hello, %s!", $name);
-  line('Answer "yes" if the number is even, otherwise answer "no".');
+task('Answer "yes" if the number is even, otherwise answer "no".');
+brainEvenLogic();
 
-  $counter = 1;
-  
-  for ($i = 1; $i < 4; $i++) {
-  
-  $randomInt = random_int(1, 100);
-  line('Question №%d: %s', $i, $randomInt);
-  $answer = prompt('Your answer');  
-
-  if (($randomInt % 2 !== 0) && ($answer === 'yes')) {
-    line("'yes' is wrong answer ;(. Correct answer was 'no'.");
-    line("Let's try again, %s!", $name);
-    break;
-  } elseif (($randomInt % 2 === 0) && ($answer === 'no')) {
-    line("'no' is wrong answer ;(. Correct answer was 'yes'.");
-    line("Let's try again, %s!", $name);
-    break;
-  } elseif ((($randomInt % 2 !== 0) && ($answer === 'no')) || (($randomInt % 2 === 0) && ($answer === 'yes'))) {
-    line("Correct!");
-    $counter++;
-  }
-  }
-
-  if ($counter === 4) {
-    line("Congratulations, %s!", $name);
-  }
-}
-
-game();

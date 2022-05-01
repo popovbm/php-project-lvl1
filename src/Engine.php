@@ -5,217 +5,208 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function greeting()
-{
-    line('Welcome to the Brain Games!');
-}
+line('Welcome to the Brain Games!');
+$name = prompt('May I have your name?');
+line("Hello, %s!", $name);
 
-function isName()
-{
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-}
 
-function task($task)
-{
-    line($task);
-}
 
-function brainCalc($num1, $num2, $operator)
-{
-    switch ($operator) {
-        case '+':
-            $result = $num1 + $num2;
-            break;
-        case '-':
-            $result = $num1 - $num2;
-            break;
-        case '*':
-            $result = $num1 * $num2;
-            break;
-        default:
-            echo 'Wrong operator operator';
-            break;
-    }
-    return $result;
-}
 
-function brainCalcExpression()
-{
-    $num1 = random_int(1, 100);
-    $num2 = random_int(1, 100);
-    $operators = ['+', '-', '*'];
-    $countOperators = count($operators) - 1;
-    $operator = $operators[rand(0, $countOperators)];
+// function brainCalc($num1, $num2, $operator)
+// {
+//     switch ($operator) {
+//         case '+':
+//             $result = $num1 + $num2;
+//             break;
+//         case '-':
+//             $result = $num1 - $num2;
+//             break;
+//         case '*':
+//             $result = $num1 * $num2;
+//             break;
+//         default:
+//             echo 'Wrong operator operator';
+//             break;
+//     }
+//     return $result;
+// }
 
-    $string = ("{$num1} {$operator} {$num2}");
-    $result = [$string, $num1, $num2, $operator];
+// function brainCalcExpression()
+// {
+//     $num1 = random_int(1, 100);
+//     $num2 = random_int(1, 100);
+//     $operators = ['+', '-', '*'];
+//     $countOperators = count($operators) - 1;
+//     $operator = $operators[rand(0, $countOperators)];
 
-    return $result;
-}
+//     $string = ("{$num1} {$operator} {$num2}");
+//     $result = [$string, $num1, $num2, $operator];
 
-function brainCalcQuestion()
-{
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
+//     return $result;
+// }
 
-    $counter = 1;
+// function brainCalcQuestion()
+// {
+//     $name = prompt('May I have your name?');
+//     line("Hello, %s!", $name);
+//     line('What is the result of the expression?');
 
-    for ($i = 0; $i < 3; $i++) {
-        [$string, $num1, $num2, $operator] = brainCalcExpression();
-        line('Question №%d: %s', $counter, $string);
-        $answer = prompt('Your answer');
-        $brainCalcResult = brainCalc($num1, $num2, $operator);
+//     $counter = 1;
 
-        if (("{$brainCalcResult}") === $answer) {
-            line("Correct!");
-            $counter++;
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$brainCalcResult}'.");
-            line("Let's try again, %s!", $name);
-            break;
-        }
-    }
+//     for ($i = 0; $i < 3; $i++) {
+//         [$string, $num1, $num2, $operator] = brainCalcExpression();
+//         line('Question №%d: %s', $counter, $string);
+//         $answer = prompt('Your answer');
+//         $brainCalcResult = brainCalc($num1, $num2, $operator);
 
-    if ($counter === 4) {
-        line("Congratulations, %s!", $name);
-    }
-}
+//         if (("{$brainCalcResult}") === $answer) {
+//             line("Correct!");
+//             $counter++;
+//         } else {
+//             line("'{$answer}' is wrong answer ;(. Correct answer was '{$brainCalcResult}'.");
+//             line("Let's try again, %s!", $name);
+//             break;
+//         }
+//     }
 
-function findGcd($num1, $num2)
-{
-    if ($num2 === 0) {
-            return abs($num1);
-    }
-        return findGcd($num2, $num1 % $num2);
-}
+//     if ($counter === 4) {
+//         line("Congratulations, %s!", $name);
+//     }
+// }
 
-function brainGcdLogic()
-{
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Find the greatest common divisor of given numbers.');
+// function findGcd($num1, $num2)
+// {
+//     if ($num2 === 0) {
+//             return abs($num1);
+//     }
+//         return findGcd($num2, $num1 % $num2);
+// }
 
-    $counter = 1;
+// function brainGcdLogic()
+// {
+//     $name = prompt('May I have your name?');
+//     line("Hello, %s!", $name);
+//     line('Find the greatest common divisor of given numbers.');
 
-    for ($i = 0; $i < 3; $i++) {
-        $num1 = random_int(1, 100);
-        $num2 = random_int(1, 100);
-        line('Question №%d: %s %s', $counter, $num1, $num2);
-        $answer = prompt('Your answer');
-        $resultFindGcd = findGcd($num1, $num2);
+//     $counter = 1;
 
-        if ($answer === ("{$resultFindGcd}")) {
-            line("Correct!");
-            $counter++;
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$resultFindGcd}'.");
-            line("Let's try again, %s!", $name);
-            break;
-        }
-    }
+//     for ($i = 0; $i < 3; $i++) {
+//         $num1 = random_int(1, 100);
+//         $num2 = random_int(1, 100);
+//         line('Question №%d: %s %s', $counter, $num1, $num2);
+//         $answer = prompt('Your answer');
+//         $resultFindGcd = findGcd($num1, $num2);
 
-    if ($counter === 4) {
-        line("Congratulations, %s!", $name);
-    }
-}
+//         if ($answer === ("{$resultFindGcd}")) {
+//             line("Correct!");
+//             $counter++;
+//         } else {
+//             line("'{$answer}' is wrong answer ;(. Correct answer was '{$resultFindGcd}'.");
+//             line("Let's try again, %s!", $name);
+//             break;
+//         }
+//     }
 
-function brainProgressionLogic()
-{
-    $dots = '..';
-    $startSequence = random_int(1, 100);
-    $randomStep = random_int(1, 10);
-    $randomRange = random_int(5, 10);
-    $endSequence = $startSequence + ($randomStep * $randomRange);
-    $array = range($startSequence, $endSequence, $randomStep);
-    $randomReplaceIndex = random_int(0, count($array) - 1);
-    $randomValueFromArray = $array[$randomReplaceIndex];
-    $array[$randomReplaceIndex] = $dots;
-    $arrayToString = implode(' ', $array);
-}
+//     if ($counter === 4) {
+//         line("Congratulations, %s!", $name);
+//     }
+// }
 
-function brainProgressionGame()
-{
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What number is missing in the progression?');
+// function brainProgressionLogic()
+// {
+//     $dots = '..';
+//     $startSequence = random_int(1, 100);
+//     $randomStep = random_int(1, 10);
+//     $randomRange = random_int(5, 10);
+//     $endSequence = $startSequence + ($randomStep * $randomRange);
+//     $array = range($startSequence, $endSequence, $randomStep);
+//     $randomReplaceIndex = random_int(0, count($array) - 1);
+//     $randomValueFromArray = $array[$randomReplaceIndex];
+//     $array[$randomReplaceIndex] = $dots;
+//     $arrayToString = implode(' ', $array);
+// }
 
-    $counter = 1;
-    $dots = '..';
+// function brainProgressionGame()
+// {
+//     $name = prompt('May I have your name?');
+//     line("Hello, %s!", $name);
+//     line('What number is missing in the progression?');
 
-    for ($i = 0; $i < 3; $i++) {
-        $startSequence = random_int(1, 100);
-        $randomStep = random_int(1, 10);
-        $randomRange = random_int(5, 10);
+//     $counter = 1;
+//     $dots = '..';
 
-        $endSequence = $startSequence + ($randomStep * $randomRange);
+//     for ($i = 0; $i < 3; $i++) {
+//         $startSequence = random_int(1, 100);
+//         $randomStep = random_int(1, 10);
+//         $randomRange = random_int(5, 10);
 
-        $array = range($startSequence, $endSequence, $randomStep);
+//         $endSequence = $startSequence + ($randomStep * $randomRange);
 
-        $randomReplaceIndex = random_int(0, count($array) - 1);
+//         $array = range($startSequence, $endSequence, $randomStep);
 
-        $randomValueFromArray = $array[$randomReplaceIndex];
+//         $randomReplaceIndex = random_int(0, count($array) - 1);
 
-        $array[$randomReplaceIndex] = $dots;
+//         $randomValueFromArray = $array[$randomReplaceIndex];
 
-        $arrayToString = implode(' ', $array);
+//         $array[$randomReplaceIndex] = $dots;
 
-        line('Question №%d: %s', $counter, $arrayToString);
-        $answer = prompt('Your answer');
+//         $arrayToString = implode(' ', $array);
 
-        if ($answer === ("{$randomValueFromArray}")) {
-            line("Correct!");
-            $counter++;
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$randomValueFromArray}'.");
-            line("Let's try again, %s!", $name);
-            break;
-        }
-    }
+//         line('Question №%d: %s', $counter, $arrayToString);
+//         $answer = prompt('Your answer');
 
-    if ($counter === 4) {
-        line("Congratulations, %s!", $name);
-    }
-}
+//         if ($answer === ("{$randomValueFromArray}")) {
+//             line("Correct!");
+//             $counter++;
+//         } else {
+//             line("'{$answer}' is wrong answer ;(. Correct answer was '{$randomValueFromArray}'.");
+//             line("Let's try again, %s!", $name);
+//             break;
+//         }
+//     }
 
-function isPrimeLogic($num)
-{
-    $intIsPrime = 'yes';
-    $intIsNotPrime = 'no';
+//     if ($counter === 4) {
+//         line("Congratulations, %s!", $name);
+//     }
+// }
 
-    for ($i = 2; $i < $num - 1; $i++) {
-        if ($num % $i === 0) {
-            return $intIsNotPrime;
-        }
-    }
-    return $intIsPrime;
-}
+// function isPrimeLogic($num)
+// {
+//     $intIsPrime = 'yes';
+//     $intIsNotPrime = 'no';
 
-function brainPrimeGame()
-{
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Answer "yes" if given number is prime. Otherwise answer "no"');
+//     for ($i = 2; $i < $num - 1; $i++) {
+//         if ($num % $i === 0) {
+//             return $intIsNotPrime;
+//         }
+//     }
+//     return $intIsPrime;
+// }
 
-    $counter = 1;
+// function brainPrimeGame()
+// {
+//     $name = prompt('May I have your name?');
+//     line("Hello, %s!", $name);
+//     line('Answer "yes" if given number is prime. Otherwise answer "no"');
 
-    for ($i = 0; $i < 3; $i++) {
-        $randomInt = random_int(1, 100);
-        $result = isPrimeLogic($randomInt);
-        line('Question №%d: %d', $counter, $randomInt);
-        $answer = prompt('Your answer');
+//     $counter = 1;
 
-        if ($answer === $result) {
-            line("Correct!");
-            $counter++;
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$result}'.");
-            line("Let's try again, %s!", $name);
-            break;
-        }
-    }
-    if ($counter === 4) {
-        line("Congratulations, %s!", $name);
-    }
-}
+//     for ($i = 0; $i < 3; $i++) {
+//         $randomInt = random_int(1, 100);
+//         $result = isPrimeLogic($randomInt);
+//         line('Question №%d: %d', $counter, $randomInt);
+//         $answer = prompt('Your answer');
+
+//         if ($answer === $result) {
+//             line("Correct!");
+//             $counter++;
+//         } else {
+//             line("'{$answer}' is wrong answer ;(. Correct answer was '{$result}'.");
+//             line("Let's try again, %s!", $name);
+//             break;
+//         }
+//     }
+//     if ($counter === 4) {
+//         line("Congratulations, %s!", $name);
+//     }
+// }
