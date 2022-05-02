@@ -15,7 +15,7 @@ function brainEvenGame()
 
     $counter = 0;
 
-    for ($i = 0; $i < 4; $i++) {
+    for ($i = 0; $i < 3; $i++) {
         $randomInt = random_int(1, 100);
         line('Question: %s', $randomInt);
         $answer = prompt('Your answer');
