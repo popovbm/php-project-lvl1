@@ -4,7 +4,6 @@ namespace src\Games\brain\even;
 
 use function cli\line;
 use function cli\prompt;
-use function Brain\Games\Engine;
 
 function brainEvenGame()
 {

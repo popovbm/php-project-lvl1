@@ -5,7 +5,7 @@ namespace src\Games\brain\calc;
 use function cli\line;
 use function cli\prompt;
 
-function brainCalc($num1, $num2, $operator)
+function brainCalc(int $num1, int $num2, string $operator): int
 {
     switch ($operator) {
         case '+':

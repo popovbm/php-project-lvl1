@@ -5,7 +5,7 @@ namespace src\Games\brain\prime;
 use function cli\line;
 use function cli\prompt;
 
-function isPrimeLogic($num)
+function isPrimeLogic(int $num)
 {
     $intIsPrime = 'yes';
     $intIsNotPrime = 'no';

@@ -30,7 +30,7 @@ function brainProgressionGame()
     $dots = '..';
 
     for ($i = 0; $i < 3; $i++) {
-        $startSequence = random_int(1, 100);
+        $startSequence = random_int(0, 100);
         $randomStep = random_int(1, 10);
         $randomRange = random_int(5, 10);
 

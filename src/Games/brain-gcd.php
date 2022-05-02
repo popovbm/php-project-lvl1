@@ -5,7 +5,7 @@ namespace src\Games\brain\gcd;
 use function cli\line;
 use function cli\prompt;
 
-function findGcd($num1, $num2)
+function findGcd(int $num1, int $num2)
 {
     if ($num2 === 0) {
             return abs($num1);
