@@ -1,13 +1,13 @@
 {
     "name": "hexlet/code",
-    "bin": ["bin/brain-games", "bin/brain-even", "bin/brain-calc", "bin/brain-gcdc", "bin/brain-progression", "bin/brain-prime", "bin/brain-test"],
+    "bin": ["bin/brain-games", "bin/brain-even", "bin/brain-calc", "bin/brain-gcd", "bin/brain-progression", "bin/brain-prime"],
     "description": "hexlet php-package",
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
         },
-	"files": ["src/Cli.php", "src/Engine.php", "src/Games/brain-even.php"]
+	"files": ["src/Cli.php", "src/Engine.php", "src/Games/brain-even.php", "src/Games/brain-calc.php", "src/Games/brain-gcd.php", "src/Games/brain-prime.php", "src/Games/brain-progression.php"]
     },
     "authors": [
         {
