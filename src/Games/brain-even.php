@@ -13,9 +13,9 @@ function brainEvenGame()
     line("Hello, %s!", $name);
     line('Answer "yes" if the number is even, otherwise answer "no".');
 
-    $counter = 1;
+    $counter = 0;
 
-    for ($i = 1; $i < 4; $i++) {
+    for ($i = 0; $i < 4; $i++) {
         $randomInt = random_int(1, 100);
         line('Question: %s', $randomInt);
         $answer = prompt('Your answer');
@@ -33,7 +33,7 @@ function brainEvenGame()
             $counter++;
         }
     }
-    if ($counter === 4) {
+    if ($counter === 3) {
         line("Congratulations, %s!", $name);
     }
 }

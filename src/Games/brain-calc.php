@@ -45,11 +45,11 @@ function brainCalcGame()
     line("Hello, %s!", $name);
     line('What is the result of the expression?');
 
-    $counter = 1;
+    $counter = 0;
 
     for ($i = 0; $i < 3; $i++) {
         [$string, $num1, $num2, $operator] = brainCalcExpression();
-        line('Question №%d: %s', $counter, $string);
+        line('Question: %s', $string);
         $answer = prompt('Your answer');
         $brainCalcResult = brainCalc($num1, $num2, $operator);
 
@@ -63,7 +63,7 @@ function brainCalcGame()
         }
     }
 
-    if ($counter === 4) {
+    if ($counter === 3) {
         line("Congratulations, %s!", $name);
     }
 }

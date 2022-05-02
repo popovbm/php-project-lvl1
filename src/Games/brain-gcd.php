@@ -20,12 +20,12 @@ function brainGcdGame()
     line("Hello, %s!", $name);
     line('Find the greatest common divisor of given numbers.');
 
-    $counter = 1;
+    $counter = 0;
 
     for ($i = 0; $i < 3; $i++) {
         $num1 = random_int(1, 100);
         $num2 = random_int(1, 100);
-        line('Question №%d: %s %s', $counter, $num1, $num2);
+        line('Question: %s %s', $num1, $num2);
         $answer = prompt('Your answer');
         $resultFindGcd = findGcd($num1, $num2);
 
@@ -39,7 +39,7 @@ function brainGcdGame()
         }
     }
 
-    if ($counter === 4) {
+    if ($counter === 3) {
         line("Congratulations, %s!", $name);
     }
 }

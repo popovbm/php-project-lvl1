@@ -25,12 +25,12 @@ function brainPrimeGame()
     line("Hello, %s!", $name);
     line('Answer "yes" if given number is prime. Otherwise answer "no"');
 
-    $counter = 1;
+    $counter = 0;
 
     for ($i = 0; $i < 3; $i++) {
         $randomInt = random_int(1, 100);
         $result = isPrimeLogic($randomInt);
-        line('Question №%d: %d', $counter, $randomInt);
+        line('Question: %d', $randomInt);
         $answer = prompt('Your answer');
 
         if ($answer === $result) {
@@ -42,7 +42,7 @@ function brainPrimeGame()
             break;
         }
     }
-    if ($counter === 4) {
+    if ($counter === 3) {
         line("Congratulations, %s!", $name);
     }
 }

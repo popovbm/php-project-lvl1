@@ -26,7 +26,7 @@ function brainProgressionGame()
     line("Hello, %s!", $name);
     line('What number is missing in the progression?');
 
-    $counter = 1;
+    $counter = 0;
     $dots = '..';
 
     for ($i = 0; $i < 3; $i++) {
@@ -41,7 +41,7 @@ function brainProgressionGame()
         $array[$randomReplaceIndex] = $dots;
         $arrayToString = implode(' ', $array);
 
-        line('Question №%d: %s', $counter, $arrayToString);
+        line('Question: %s', $arrayToString);
         $answer = prompt('Your answer');
 
         if ($answer === ("{$randomValueFromArray}")) {
@@ -54,7 +54,7 @@ function brainProgressionGame()
         }
     }
 
-    if ($counter === 4) {
+    if ($counter === 3) {
         line("Congratulations, %s!", $name);
     }
 }
