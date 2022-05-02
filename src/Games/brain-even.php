@@ -12,11 +12,12 @@ function brainEvenGame()
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     line('Answer "yes" if the number is even, otherwise answer "no".');
+
     $counter = 1;
 
     for ($i = 1; $i < 4; $i++) {
         $randomInt = random_int(1, 100);
-        line('Question №%d: %s', $i, $randomInt);
+        line('Question: %s', $randomInt);
         $answer = prompt('Your answer');
 
         if (($randomInt % 2 !== 0) && ($answer === 'yes')) {
