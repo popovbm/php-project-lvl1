@@ -21,7 +21,7 @@ function brainCalc(int $num1, int $num2, string $operator): int
             echo 'Wrong operator operator';
             break;
     }
-    return $result;
+    return (int) $result;
 }
 
 function brainCalcExpression()
