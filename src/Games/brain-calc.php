@@ -7,6 +7,7 @@ use function cli\prompt;
 
 function brainCalc(int $num1, int $num2, string $operator): int
 {
+    $result = 0;
     switch ($operator) {
         case '+':
             $result = $num1 + $num2;
@@ -21,7 +22,7 @@ function brainCalc(int $num1, int $num2, string $operator): int
             echo 'Wrong operator operator';
             break;
     }
-    return (int) $result;
+    return $result;
 }
 
 function brainCalcExpression()

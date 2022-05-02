@@ -16,13 +16,13 @@ function brainProgressionGame()
     $dots = '..';
 
     for ($i = 0; $i < 3; $i++) {
-        $startSequence = random_int(0, 100);
-        $randomStep = random_int(1, 10);
-        $randomRange = random_int(5, 10);
+        $startSequence = rand(0, 100);
+        $randomStep = rand(1, 10);
+        $randomRange = rand(5, 10);
 
         $endSequence = $startSequence + ($randomStep * $randomRange);
         $array = range($startSequence, $endSequence, $randomStep);
-        $randomReplaceIndex = random_int(0, count($array) - 1);
+        $randomReplaceIndex = rand(0, count($array) - 1);
         $randomValueFromArray = $array[$randomReplaceIndex];
         $array[$randomReplaceIndex] = $dots;
         $arrayToString = implode(' ', $array);
