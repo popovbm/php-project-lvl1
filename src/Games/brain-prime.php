@@ -9,7 +9,7 @@ function isPrimeLogic(int $num)
 {
     $intIsPrime = 'yes';
     $intIsNotPrime = 'no';
-    
+
     for ($i = 2; $i < $num - 1; $i++) {
         if ($num === 1) {
             return $intIsPrime;
