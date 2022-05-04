@@ -1,9 +1,10 @@
 <?php
 
-namespace src\Games\brain\calc;
+namespace src\Games\Brain\Calc;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Games\Engine\game;
+
+use const Brain\Games\Engine\MAX_ROUNDS;
 
 function brainCalc(int $num1, int $num2, string $operator): int
 {
@@ -19,7 +20,7 @@ function brainCalc(int $num1, int $num2, string $operator): int
             $result = $num1 * $num2;
             break;
         default:
-            echo 'Wrong operator operator';
+            echo 'Wrong operator';
             break;
     }
     return $result;
@@ -39,32 +40,21 @@ function brainCalcExpression()
     return $result;
 }
 
-function brainCalcGame()
+function calcResult()
 {
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
-
-    $counter = 0;
-
-    for ($i = 0; $i < 3; $i++) {
+    $result = [];
+    $rounds = MAX_ROUNDS;
+    for ($i = 0; $i < $rounds; $i++) {
         [$string, $num1, $num2, $operator] = brainCalcExpression();
-        line('Question: %s', $string);
-        $answer = prompt('Your answer');
         $brainCalcResult = brainCalc($num1, $num2, $operator);
-
-        if (("{$brainCalcResult}") === $answer) {
-            line("Correct!");
-            $counter++;
-        } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$brainCalcResult}'.");
-            line("Let's try again, %s!", $name);
-            break;
-        }
+        $result[] = [$string, $brainCalcResult];
     }
+    return $result;
+}
 
-    if ($counter === 3) {
-        line("Congratulations, %s!", $name);
-    }
+function play()
+{
+    $question = calcResult();
+    $description = 'What is the result of the expression?';
+    game($question, $description);
 }
