@@ -4,13 +4,15 @@
 ![example workflow](https://github.com/popovbm/php-project-lvl1/actions/workflows/lint-check.yml/badge.svg)
 # Brain Games
 ## Required:
-The latest version of php installed
-Installed composer, so that it is available globally by the composer command([see](https://getcomposer.org/doc/00-intro.md#globally))
+- The latest version of php installed
+- Installed composer, so that it is available globally by the composer command([see](https://getcomposer.org/doc/00-intro.md#globally))
 
 ## How to install: 
+```sh
 git clone git@github.com:popovbm/php-project-lvl1.git
 cd php-project-lvl1.git
 make "game name" (ex. make brain-even)
+```
 
 ### Brain-even
 [![asciicast](https://asciinema.org/a/490861.svg)](https://asciinema.org/a/490861)
