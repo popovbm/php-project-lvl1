@@ -1,12 +1,12 @@
 <?php
 
-namespace src\Games\Brain\Prime;
+namespace Games\Brain\Prime;
 
-use function Brain\Games\Engine\game;
+use function Brain\Games\Engine\runLogic;
 
 use const Brain\Games\Engine\MAX_ROUNDS;
 
-function isPrimeLogic(int $num)
+function isPrime(int $num)
 {
     $intIsPrime = 'yes';
     $intIsNotPrime = 'no';
@@ -22,21 +22,21 @@ function isPrimeLogic(int $num)
     return $intIsPrime;
 }
 
-function brainPrimeGame()
+function brainPrimeResult()
 {
     $result = [];
     $rounds = MAX_ROUNDS;
     for ($i = 0; $i < $rounds; $i++) {
         $randomInt = rand(1, 100);
-        $isPrime = isPrimeLogic($randomInt);
-        $result[] = [$randomInt, $isPrime];
+        $isPrime = isPrime($randomInt);
+        $result[] = ["question" => $randomInt, "answer" => $isPrime];
     }
     return $result;
 }
 
 function play()
 {
-    $question = brainPrimeGame();
-    $description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
-    game($question, $description);
+    $data = brainPrimeResult();
+    $taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+    runLogic($data, $taskDescription);
 }

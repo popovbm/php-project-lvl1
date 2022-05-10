@@ -7,30 +7,24 @@ use function cli\prompt;
 
 const MAX_ROUNDS = 3;
 
-function game(array $question, string $description)
+function runLogic(array $data, string $taskDescription)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line($description);
+    line($taskDescription);
 
-    $counter = 0;
-
-    for ($i = 0; $i < MAX_ROUNDS; $i++) {
-        line('Question: %s', $question[$i][0]);
+    for ($roundCounter = 0; $roundCounter < MAX_ROUNDS; $roundCounter++) {
+        line('Question: %s', $data[$roundCounter]["question"]);
         $userAnswer = prompt('Your answer');
 
-        if ($userAnswer === ("{$question[$i][1]}")) {
+        if ($userAnswer === ("{$data[$roundCounter]["answer"]}")) {
             line("Correct!");
-            $counter++;
         } else {
-            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$question[$i][1]}'.");
+            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$data[$roundCounter]["answer"]}'.");
             line("Let's try again, %s!", $name);
-            break;
+            return;
         }
     }
-
-    if ($counter === 3) {
-        line("Congratulations, %s!", $name);
-    }
+    line("Congratulations, %s!", $name);
 }

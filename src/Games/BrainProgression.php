@@ -1,12 +1,12 @@
 <?php
 
-namespace src\Games\Brain\Progression;
+namespace Games\Brain\Progression;
 
-use function Brain\Games\Engine\game;
+use function Brain\Games\Engine\runLogic;
 
 use const Brain\Games\Engine\MAX_ROUNDS;
 
-function brainProgressionGame()
+function brainProgressionResult()
 {
     $dots = '..';
     $result = [];
@@ -21,14 +21,14 @@ function brainProgressionGame()
         $randomValueFromArray = $array[$randomReplaceIndex];
         $array[$randomReplaceIndex] = $dots;
         $arrayToString = implode(' ', $array);
-        $result[] = [$arrayToString, $randomValueFromArray];
+        $result[] = ["question" => $arrayToString, "answer" => $randomValueFromArray];
     }
     return $result;
 }
 
 function play()
 {
-    $question = brainProgressionGame();
-    $description = 'What number is missing in the progression?';
-    game($question, $description);
+    $data = brainProgressionResult();
+    $taskDescription = 'What number is missing in the progression?';
+    runLogic($data, $taskDescription);
 }

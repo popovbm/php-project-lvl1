@@ -1,12 +1,12 @@
 <?php
 
-namespace src\Games\Brain\Calc;
+namespace Games\Brain\Calc;
 
-use function Brain\Games\Engine\game;
+use function Brain\Games\Engine\runLogic;
 
 use const Brain\Games\Engine\MAX_ROUNDS;
 
-function brainCalc(int $num1, int $num2, string $operator): int
+function calculator(int $num1, int $num2, string $operator): int
 {
     $result = 0;
     switch ($operator) {
@@ -40,21 +40,21 @@ function brainCalcExpression()
     return $result;
 }
 
-function calcResult()
+function brainCalcResult()
 {
     $result = [];
     $rounds = MAX_ROUNDS;
     for ($i = 0; $i < $rounds; $i++) {
         [$string, $num1, $num2, $operator] = brainCalcExpression();
-        $brainCalcResult = brainCalc($num1, $num2, $operator);
-        $result[] = [$string, $brainCalcResult];
+        $brainCalcResult = calculator($num1, $num2, $operator);
+        $result[] = ["question" => $string, "answer" => $brainCalcResult];
     }
     return $result;
 }
 
 function play()
 {
-    $question = calcResult();
-    $description = 'What is the result of the expression?';
-    game($question, $description);
+    $data = brainCalcResult();
+    $taskDescription = 'What is the result of the expression?';
+    runLogic($data, $taskDescription);
 }

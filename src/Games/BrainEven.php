@@ -1,8 +1,8 @@
 <?php
 
-namespace src\Games\Brain\Even;
+namespace Games\Brain\Even;
 
-use function Brain\Games\Engine\game;
+use function Brain\Games\Engine\runLogic;
 
 use const Brain\Games\Engine\MAX_ROUNDS;
 
@@ -12,14 +12,14 @@ function isNumEven()
     $rounds = MAX_ROUNDS;
     for ($i = 0; $i < $rounds; $i++) {
         $num = rand(1, 100);
-        $result[] = [$num, $num % 2 === 0 ? 'yes' : 'no'];
+        $result[] = ["question" => $num, "answer" => $num % 2 === 0 ? 'yes' : 'no'];
     }
     return $result;
 }
 
 function play()
 {
-    $question = isNumEven();
-    $description = 'Answer "yes" if the number is even, otherwise answer "no".';
-    game($question, $description);
+    $data = isNumEven();
+    $taskDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+    runLogic($data, $taskDescription);
 }
