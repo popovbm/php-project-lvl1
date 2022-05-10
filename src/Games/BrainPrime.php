@@ -11,10 +11,11 @@ function isPrime(int $num)
     $intIsPrime = 'yes';
     $intIsNotPrime = 'no';
 
+    if ($num === 1) {
+        return $intIsNotPrime;
+    }
+
     for ($i = 2; $i < $num - 1; $i++) {
-        if ($num === 1) {
-            return $intIsPrime;
-        }
         if ($num % $i === 0) {
             return $intIsNotPrime;
         }
