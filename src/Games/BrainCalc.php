@@ -2,9 +2,11 @@
 
 namespace Games\Brain\Calc;
 
-use function Brain\Games\Engine\runLogic;
+use function Brain\Games\Engine\runEngine;
 
 use const Brain\Games\Engine\MAX_ROUNDS;
+
+const TASK_DESCRIPTION = 'What is the result of the expression?';
 
 function calculator(int $num1, int $num2, string $operator): int
 {
@@ -26,35 +28,31 @@ function calculator(int $num1, int $num2, string $operator): int
     return $result;
 }
 
-function brainCalcExpression()
+function generateRandomExpression()
 {
     $num1 = random_int(1, 100);
     $num2 = random_int(1, 100);
     $operators = ['+', '-', '*'];
-    $countOperators = count($operators) - 1;
-    $operator = $operators[rand(0, $countOperators)];
-
-    $string = ("{$num1} {$operator} {$num2}");
-    $result = [$string, $num1, $num2, $operator];
+    $maxOperatorsIndexCount = count($operators) - 1;
+    $randomOperator = $operators[rand(0, $maxOperatorsIndexCount)];
+    $expression = ("{$num1} {$randomOperator} {$num2}");
+    $result = [$expression, $num1, $num2, $randomOperator];
 
     return $result;
 }
 
-function brainCalcResult()
+function generateDataToEngine()
 {
     $result = [];
-    $rounds = MAX_ROUNDS;
-    for ($i = 0; $i < $rounds; $i++) {
-        [$string, $num1, $num2, $operator] = brainCalcExpression();
-        $brainCalcResult = calculator($num1, $num2, $operator);
-        $result[] = ["question" => $string, "answer" => $brainCalcResult];
+    for ($i = 0; $i < MAX_ROUNDS; $i++) {
+        [$question, $num1, $num2, $operator] = generateRandomExpression();
+        $calculateResult = calculator($num1, $num2, $operator);
+        $result[] = ["question" => $question, "answer" => $calculateResult];
     }
     return $result;
 }
 
 function play()
 {
-    $data = brainCalcResult();
-    $taskDescription = 'What is the result of the expression?';
-    runLogic($data, $taskDescription);
+    runEngine(generateDataToEngine(), TASK_DESCRIPTION);
 }
