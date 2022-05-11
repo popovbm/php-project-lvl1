@@ -8,7 +8,7 @@ use const Brain\Games\Engine\MAX_ROUNDS;
 
 const TASK_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function findIsNumEven($num)
+function findIsNumEven(int $num)
 {
     return $num % 2 === 0 ? 'yes' : 'no';
 }
