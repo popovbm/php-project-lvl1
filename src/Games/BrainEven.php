@@ -1,10 +1,10 @@
 <?php
 
-namespace Games\Brain\Even;
+namespace BrainGames\Games\Brain\Even;
 
-use function Brain\Games\Engine\runEngine;
+use function BrainGames\Engine\runEngine;
 
-use const Brain\Games\Engine\MAX_ROUNDS;
+use const BrainGames\Engine\MAX_ROUNDS;
 
 const TASK_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Games\Brain\Gcd;
+namespace BrainGames\Games\Brain\Gcd;
 
-use function Brain\Games\Engine\runEngine;
+use function BrainGames\Engine\runEngine;
 
-use const Brain\Games\Engine\MAX_ROUNDS;
+use const BrainGames\Engine\MAX_ROUNDS;
 
 const TASK_DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 

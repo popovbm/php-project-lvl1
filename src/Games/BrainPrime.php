@@ -1,10 +1,10 @@
 <?php
 
-namespace Games\Brain\Prime;
+namespace BrainGames\Games\Brain\Prime;
 
-use function Brain\Games\Engine\runEngine;
+use function BrainGames\Engine\runEngine;
 
-use const Brain\Games\Engine\MAX_ROUNDS;
+use const BrainGames\Engine\MAX_ROUNDS;
 
 const TASK_DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
