@@ -26,30 +26,30 @@ make install
 ```sh
 make "game name" (e.g. make brain-even)
 ```
-##### Game list:
+### Game list:
 1. brain-even
 2. brain-calc
 3. brain-gcd
 4. brain-progression
 5. brain-prime
-***
+
 ## Games:
 ### Brain-even
 The user is shown a random number(e.g. "42"). The user must enter "yes" if the number is even, or "no" if it is odd.
-[![asciicast](https://asciinema.org/a/490861.svg)](https://asciinema.org/a/490861)
+[![asciicast](https://asciinema.org/a/494073.svg)](https://asciinema.org/a/494073)
 
 ### Brain-calc
 The user is shown a random mathematical expression(e.g. "12 + 33") that needs to be calculated and enter the correct answer.
-[![asciicast](https://asciinema.org/a/490859.svg)](https://asciinema.org/a/490859)
+[![asciicast](https://asciinema.org/a/494075.svg)](https://asciinema.org/a/494075)
 
 ### Brain-gcd
 The user is shown two random numbers(e.g. "25 50"). The user must calculate and enter the greatest common divisor of these numbers.
-[![asciicast](https://asciinema.org/a/490858.svg)](https://asciinema.org/a/490858)
+[![asciicast](https://asciinema.org/a/494076.svg)](https://asciinema.org/a/494076)
 
 ### Brain-progression
 The user is shown a series of numbers forming an arithmetic progression with one missing value (e.g. "1 2 3 .. 5 6 7 8"). The user must enter a missing value.
-[![asciicast](https://asciinema.org/a/490856.svg)](https://asciinema.org/a/490856)
+[![asciicast](https://asciinema.org/a/494077.svg)](https://asciinema.org/a/494077)
 
 ### Brain-prime
 The user is shown a random number(e.g. "15"). The user must enter "yes" if the number is prime, or "no" if it's not prime.
-[![asciicast](https://asciinema.org/a/490855.svg)](https://asciinema.org/a/490855)
+[![asciicast](https://asciinema.org/a/494078.svg)](https://asciinema.org/a/494078)
