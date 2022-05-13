@@ -8,32 +8,27 @@ use const Brain\Games\Engine\MAX_ROUNDS;
 
 const TASK_DESCRIPTION = 'What number is missing in the progression?';
 
-function generateProgression()
+function generateProgression(): array
 {
     $startSequence = rand(0, 100);
     $randomStep = rand(1, 10);
     $randomRange = rand(5, 10);
     $endSequence = $startSequence + ($randomStep * $randomRange);
-    $progressionRange = range($startSequence, $endSequence, $randomStep);
-    return $progressionRange;
+    $result = range($startSequence, $endSequence, $randomStep);
+    return $result;
 }
 
-function generateDataToEngine()
+function runGame()
 {
     $dots = '..';
     $result = [];
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
-        $progressionRange = generateProgression();
-        $randomReplacementIndex = rand(0, count($progressionRange) - 1);
-        $randomProgressionRangeValue = $progressionRange[$randomReplacementIndex];
-        $progressionRange[$randomReplacementIndex] = $dots;
-        $progressionRangeToStr = implode(' ', $progressionRange);
+        $progression = generateProgression();
+        $randomReplacementIndex = rand(0, count($progression) - 1);
+        $randomProgressionRangeValue = $progression[$randomReplacementIndex];
+        $progression[$randomReplacementIndex] = $dots;
+        $progressionRangeToStr = implode(' ', $progression);
         $result[] = ["question" => $progressionRangeToStr, "answer" => $randomProgressionRangeValue];
     }
-    return $result;
-}
-
-function play()
-{
-    runEngine(generateDataToEngine(), TASK_DESCRIPTION);
+    runEngine($result, TASK_DESCRIPTION);
 }

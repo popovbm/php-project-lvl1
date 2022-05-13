@@ -8,22 +8,18 @@ use const Brain\Games\Engine\MAX_ROUNDS;
 
 const TASK_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function findIsNumEven(int $num)
+function isNumEven(int $num): bool
 {
-    return $num % 2 === 0 ? 'yes' : 'no';
+    return $num % 2 === 0;
 }
 
-function generateDataToEngine()
+function runGame()
 {
     $result = [];
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
         $randomNum = rand(1, 100);
-        $result[] = ["question" => $randomNum, "answer" => findIsNumEven($randomNum)];
+        $resultOfChecking = isNumEven($randomNum) === true ? 'yes' : 'no';
+        $result[] = ["question" => $randomNum, "answer" => $resultOfChecking];
     }
-    return $result;
-}
-
-function play()
-{
-    runEngine(generateDataToEngine(), TASK_DESCRIPTION);
+    runEngine($result, TASK_DESCRIPTION);
 }
