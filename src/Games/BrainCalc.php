@@ -33,8 +33,8 @@ function runGame()
     $result = [];
     $operators = ['+', '-', '*'];
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
-        $randomNum1 = random_int(1, 100);
-        $randomNum2 = random_int(1, 100);
+        $randomNum1 = rand(1, 100);
+        $randomNum2 = rand(1, 100);
         $maxOperatorsIndexCount = count($operators) - 1;
         $randomOperator = $operators[rand(0, $maxOperatorsIndexCount)];
         $expression = ("{$randomNum1} {$randomOperator} {$randomNum2}");

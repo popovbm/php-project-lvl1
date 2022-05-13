@@ -33,6 +33,7 @@ make "game name" (e.g. make brain-even)
 4. brain-progression
 5. brain-prime
 ***
+## Games:
 ### Brain-even
 The user is shown a random number(e.g. "42"). The user must enter "yes" if the number is even, or "no" if it is odd.
 [![asciicast](https://asciinema.org/a/490861.svg)](https://asciinema.org/a/490861)
