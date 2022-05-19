@@ -6,7 +6,7 @@ use function BrainGames\Engine\runEngine;
 
 use const BrainGames\Engine\MAX_ROUNDS;
 
-const TASK_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
+const GAME_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isNumEven(int $num): bool
 {
@@ -15,11 +15,11 @@ function isNumEven(int $num): bool
 
 function runGame()
 {
-    $result = [];
+    $rounds = [];
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
-        $randomNum = rand(1, 100);
-        $resultOfChecking = isNumEven($randomNum) === true ? 'yes' : 'no';
-        $result[] = ["question" => $randomNum, "answer" => $resultOfChecking];
+        $question = rand(1, 100);
+        $answer = isNumEven($question) ? 'yes' : 'no';
+        $rounds[] = ["question" => $question, "answer" => $answer];
     }
-    runEngine($result, TASK_DESCRIPTION);
+    runEngine($rounds, GAME_DESCRIPTION);
 }

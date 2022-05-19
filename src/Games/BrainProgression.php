@@ -6,7 +6,7 @@ use function BrainGames\Engine\runEngine;
 
 use const BrainGames\Engine\MAX_ROUNDS;
 
-const TASK_DESCRIPTION = 'What number is missing in the progression?';
+const GAME_DESCRIPTION = 'What number is missing in the progression?';
 
 function generateProgression(): array
 {
@@ -21,14 +21,14 @@ function generateProgression(): array
 function runGame()
 {
     $dots = '..';
-    $result = [];
+    $rounds = [];
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
         $progression = generateProgression();
-        $randomReplacementIndex = rand(0, count($progression) - 1);
-        $randomProgressionRangeValue = $progression[$randomReplacementIndex];
+        $randomReplacementIndex = array_rand($progression);
+        $answer = $progression[$randomReplacementIndex];
         $progression[$randomReplacementIndex] = $dots;
-        $progressionRangeToStr = implode(' ', $progression);
-        $result[] = ["question" => $progressionRangeToStr, "answer" => $randomProgressionRangeValue];
+        $question = implode(' ', $progression);
+        $rounds[] = ["question" => $question, "answer" => $answer];
     }
-    runEngine($result, TASK_DESCRIPTION);
+    runEngine($rounds, GAME_DESCRIPTION);
 }

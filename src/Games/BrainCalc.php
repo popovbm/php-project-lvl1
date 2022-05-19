@@ -6,40 +6,33 @@ use function BrainGames\Engine\runEngine;
 
 use const BrainGames\Engine\MAX_ROUNDS;
 
-const TASK_DESCRIPTION = 'What is the result of the expression?';
+const GAME_DESCRIPTION = 'What is the result of the question?';
 
 function calculateExpression(int $num1, int $num2, string $operator): int
 {
-    $result = 0;
     switch ($operator) {
         case '+':
-            $result = $num1 + $num2;
-            break;
+            return $num1 + $num2;
         case '-':
-            $result = $num1 - $num2;
-            break;
+            return $num1 - $num2;
         case '*':
-            $result = $num1 * $num2;
-            break;
+            return $num1 * $num2;
         default:
-            echo 'Wrong operator';
-            break;
+            return 'Wrong operator';
     }
-    return $result;
 }
 
 function runGame()
 {
-    $result = [];
+    $rounds = [];
     $operators = ['+', '-', '*'];
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
         $randomNum1 = rand(1, 100);
         $randomNum2 = rand(1, 100);
-        $maxOperatorsIndexCount = count($operators) - 1;
-        $randomOperator = $operators[rand(0, $maxOperatorsIndexCount)];
-        $expression = ("{$randomNum1} {$randomOperator} {$randomNum2}");
-        $calculateResult = calculateExpression($randomNum1, $randomNum2, $randomOperator);
-        $result[] = ["question" => $expression, "answer" => $calculateResult];
+        $randomOperator = $operators[array_rand($operators)];
+        $question = ("{$randomNum1} {$randomOperator} {$randomNum2}");
+        $answer = calculateExpression($randomNum1, $randomNum2, $randomOperator);
+        $rounds[] = ["question" => $question, "answer" => $answer];
     }
-    runEngine($result, TASK_DESCRIPTION);
+    runEngine($rounds, GAME_DESCRIPTION);
 }

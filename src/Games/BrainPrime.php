@@ -6,7 +6,7 @@ use function BrainGames\Engine\runEngine;
 
 use const BrainGames\Engine\MAX_ROUNDS;
 
-const TASK_DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+const GAME_DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
 function isNumPrime(int $num): bool
 {
@@ -24,11 +24,11 @@ function isNumPrime(int $num): bool
 
 function runGame()
 {
-    $result = [];
+    $rounds = [];
     for ($i = 0; $i < MAX_ROUNDS; $i++) {
-        $randomNum = rand(1, 100);
-        $resultOfChecking = isNumPrime($randomNum) === true ? 'yes' : 'no';
-        $result[] = ["question" => $randomNum, "answer" => $resultOfChecking];
+        $question = rand(1, 100);
+        $answer = isNumPrime($question) ? 'yes' : 'no';
+        $rounds[] = ["question" => $question, "answer" => $answer];
     }
-    runEngine($result, TASK_DESCRIPTION);
+    runEngine($rounds, GAME_DESCRIPTION);
 }
